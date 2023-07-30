@@ -6,21 +6,27 @@ import {
 import SearchBar from "../../components/SearchBar";
 import GeoCode from "./GeoCode";
 import Button from "../../components/Button";
+import {postData} from "../../apiService/PostFunction";
+
 
 
 
 const currentDate = new Date();
 
 const BookTimeSlot = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] =  useState('');
-    const [loading, setLoading] =  useState('');
+    const [a, setA] = useState('');
+    const [b, setB] = useState('');
+    const [timeSlot, setTimeSlot] = useState('');
+
+    const onBookButtonPressed = async () => {
+        postData(a, b, timeSlot);
+    }
     return (
         <SafeAreaView style={{width: "100%", height: "100%" , flexDirection: "column"}}>
             <ScrollView>
                 <TextInput
-                    value={username}
-                    onChangeText={setUsername}
+                    value={a}
+                    onChangeText={setA}
                     style={{
                     fontWeight: 'bold',
                     fontSize: 19,
@@ -28,26 +34,30 @@ const BookTimeSlot = () => {
                     paddingTop: 20}}>{"1. Find your end train station 🚇"}</TextInput>
                 <SearchBar innerText={"e.g. Bruck an der Mur"} />
 
-                <Text style={{
+                <TextInput
+                    value={b}
+                    onChangeText={setB}
+                    style={{
                     fontWeight: 'bold',
                     fontSize: 19,
                     paddingHorizontal: 30,
-                    paddingTop: 20}}>{"2. Where you need to go? 🏡"}</Text>
+                    paddingTop: 20}}>{"2. Where you need to go? 🏡"}</TextInput>
                 <SearchBar  innerText={"e.g. Home address"}  />
-                <Text style={{
+                <TextInput
+                    value={timeSlot}
+                    onChangeText={setTimeSlot}
+                    style={{
                     fontWeight: 'bold',
                     fontSize: 19,
                     paddingHorizontal: 30,
-                    paddingTop: 20}}>{"3. Pick the time slot your train is arriving to the station? ⏰"}</Text>
+                    paddingTop: 20}}>{"3. Pick the time slot your train is arriving to the station? ⏰"}</TextInput>
                 <SearchBar innerText={"e.g. 19 : 00 - 19 : 15"} />
 
                 <View style={{paddingTop: 20, borderRadius: 50}}>
                     <Button
-                        //textColor={'black'}
-                        //color={'rgba(180,1,96,0.87)'}
                         innerText={"Book a ride" }
                         bgColor={'#d9415c'}
-                        //title={"Book a ride"}
+                        onPress={onBookButtonPressed}
                     />
                 </View>
                 <View style={{width: 400, height: 400}}>

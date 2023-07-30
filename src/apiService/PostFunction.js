@@ -1,8 +1,8 @@
-export async function postData() {
+export async function postData(a, b, timeSlot) {
     const body = {
-        "arrival_train_station": "Bruck an der Mur",
-        "arrival_end_address": "B",
-        "time_slot": "19:00 - 19:15",
+        "arrival_train_station": a,
+        "arrival_end_address": b,
+        "time_slot": timeSlot,
     }
     try {
         let apiRequest = await fetch('http://igorche.pythonanywhere.com', {
@@ -14,6 +14,7 @@ export async function postData() {
             }
         );
         let response = await apiRequest.json();
+        console.log('if code 200 post successful: ', response)
     } catch (error) {
         console.error('error: ', error)
     }
