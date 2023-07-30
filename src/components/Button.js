@@ -6,15 +6,15 @@ const Button = ({innerText, bgColor}) => {
         <TouchableOpacity>
             <View style={{
                 height: 42,
-                width: 90,
+                width: 190,
                 backgroundColor: bgColor,
-                borderRadius: 10,
+                borderRadius: 20,
                 alignSelf: "center",
                 alignItems: "center",
                 justifyContent: "center",
                 alignContent: "center"
             }}>
-                <Text style={{fontSize: 15, fontWeight: "bold", color: "white"}}>{innerText}</Text>
+                <Text style={{fontSize: 20, fontWeight: "bold", color: "white"}}>{innerText}{"  "}</Text>
             </View>
         </TouchableOpacity>
     );

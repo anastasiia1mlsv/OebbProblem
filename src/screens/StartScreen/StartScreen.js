@@ -37,13 +37,10 @@ export const StartScreen = () => {
                         props.navigationState.routes.map((route, key) => {
                             const color = index === key ? 'white' : 'black';
                             //const backgroundColor = index === key ? 'rgb(56,203,199)' : "white";
-                            const backgroundColor = index === key ? "#E20029FF" : "white";
+                            const backgroundColor = index === key ? "#d9415c" : "white";
                             //const borderWidth = index === key ? 2 : 0;
                             return (
                                 <View style={{
-                                    //'rgba(9,253,131,0.87)' first mint color
-                                    //borderWidth: borderWidth,
-                                    //borderColor: 'rgba(162,0,86,0.87)',
                                     backgroundColor: backgroundColor,
                                     padding: "10%",
                                     borderRadius: 25 }} key={key}>
